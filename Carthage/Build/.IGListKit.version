@@ -1,0 +1,10 @@
+{
+  "xcodeVersion" : "Xcode 8.2.1\nBuild version 8C1002",
+  "commitish" : "2.1.0",
+  "iOS" : [
+    {
+      "hash" : "e8dc96e27d476680d68c178244d6da0c541b8d31a5255ef28699cb68004868d6",
+      "name" : "IGListKit"
+    }
+  ]
+}
