@@ -19,11 +19,15 @@ class SectionController: IGListSectionController, IGListSectionType {
     }
     
     func numberOfItems() -> Int {
-        return 1
+        if event.eventName.isEmpty || event.eventTime.isEmpty {
+            return 0
+        } else {
+            return 1
+        }
     }
     
     func sizeForItem(at index: Int) -> CGSize {
-        return CGSize(width: 0.96 * UIScreen.main.bounds.width, height: 74) //92
+        return CGSize(width: 0.96 * UIScreen.main.bounds.width, height: 74) // two line label height == 92
     }
     
     func cellForItem(at index: Int) -> UICollectionViewCell {
@@ -48,32 +52,16 @@ class SectionController: IGListSectionController, IGListSectionType {
             
             if #available(iOS 10.0, *) {
                 svc.preferredBarTintColor = #colorLiteral(red: 0.05098039216, green: 0.05098039216, blue: 0.05098039216, alpha: 1)
-                
-                switch event.status {
-                case .green:
-                    svc.preferredControlTintColor = #colorLiteral(red: 0.262745098, green: 0.6274509804, blue: 0.2784313725, alpha: 1)
-                case .yellow:
-                    svc.preferredControlTintColor = #colorLiteral(red: 0.9764705882, green: 0.6588235294, blue: 0.1450980392, alpha: 1)
-                case .red:
-                    svc.preferredControlTintColor = #colorLiteral(red: 0.7764705882, green: 0.1568627451, blue: 0.1568627451, alpha: 1)
-                }
-                
+                svc.preferredControlTintColor = event.status.color
             } else {
-                switch event.status {
-                case .green:
-                    svc.view.tintColor = #colorLiteral(red: 0.262745098, green: 0.6274509804, blue: 0.2784313725, alpha: 1)
-                case .yellow:
-                    svc.view.tintColor = #colorLiteral(red: 0.9764705882, green: 0.6588235294, blue: 0.1450980392, alpha: 1)
-                case .red:
-                    svc.view.tintColor = #colorLiteral(red: 0.7764705882, green: 0.1568627451, blue: 0.1568627451, alpha: 1)
-                }
+                svc.view.tintColor = event.status.color
             }
             
             self.viewController?.present(svc, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "No Info Site Found For \(event.eventName)", message: nil, preferredStyle: .alert)
+            let alert = UIAlertController(title: "No Website Found for \(event.eventName)", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            alert.view.tintColor = #colorLiteral(red: 0.262745098, green: 0.6274509804, blue: 0.2784313725, alpha: 1)
+            alert.view.tintColor = event.status.color
             self.viewController?.present(alert, animated: true, completion: nil)
         }
     }
