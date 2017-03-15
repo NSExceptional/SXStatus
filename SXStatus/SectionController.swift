@@ -15,13 +15,15 @@ class SectionController: IGListSectionController, IGListSectionType {
     
     override init() {
         super.init()
-        self.inset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
     }
     
     func numberOfItems() -> Int {
+        // Don't display a cell if the eventName or eventTime is an empty string
         if event.eventName.isEmpty || event.eventTime.isEmpty {
             return 0
         } else {
+            // Only add spacing in between the cell if there is a cell being returned
+            self.inset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
             return 1
         }
     }
