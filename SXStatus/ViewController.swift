@@ -16,7 +16,6 @@ class ViewController: UIViewController, IGListAdapterDataSource {
     
     var refreshControl: UIRefreshControl!
     let collectionView = IGListCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    
     lazy var adapter: IGListAdapter = {
         return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
@@ -31,6 +30,7 @@ class ViewController: UIViewController, IGListAdapterDataSource {
         self.collectionView.backgroundColor = #colorLiteral(red: 0.1882352941, green: 0.1882352941, blue: 0.1882352941, alpha: 1)
         self.collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         
+        // PDF image for Navigation Bar title
         self.navigationItem.titleView = UIImageView(image: UIImage(named: "Logo"))
         self.view.addSubview(collectionView)
         self.adapter.collectionView = collectionView

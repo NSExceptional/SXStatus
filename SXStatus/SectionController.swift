@@ -36,6 +36,7 @@ class SectionController: IGListSectionController, IGListSectionType {
         let cell = collectionContext?.dequeueReusableCell(of: EventCell.self, for: self, at: index) as! EventCell
         
         cell.eventNameLabel.text = event.eventName
+        // Sometimes the API returns "AM" and sometimes "A.M."
         cell.eventTimeLabel.text = event.eventTime.replacingOccurrences(of: ".", with: "")
         cell.venueNameLabel.text = event.venueName.uppercased()
         cell.statusColor = event.status
@@ -49,6 +50,7 @@ class SectionController: IGListSectionController, IGListSectionType {
     }
     
     func didSelectItem(at index: Int) {
+        // If the Event was found in films.json
         if let url = self.event.filmLink?.url {
             let svc = SFSafariViewController(url: url)
             
@@ -60,6 +62,7 @@ class SectionController: IGListSectionController, IGListSectionType {
             }
             
             self.viewController?.present(svc, animated: true, completion: nil)
+        // If the Event was not found in films.json
         } else {
             let alert = UIAlertController(title: "No Website Found for \(event.eventName)", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))

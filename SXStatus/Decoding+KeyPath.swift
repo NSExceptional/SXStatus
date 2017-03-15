@@ -12,7 +12,7 @@ import JSON
 /// Decode a key path value from a given JSON dictionary.
 ///
 /// - parameter dictionary: a JSON dictionary
-/// - parameter keyPath: key in the dictionary
+/// - parameter keyPath: the key path in the dictionary. Use dot notation to denote the key path.
 /// - returns: The expected value
 /// - throws: JSONDeserializationError
 public func decode<T>(_ dictionary: JSONDictionary, keyPath: String) throws -> T {
