@@ -13,7 +13,6 @@
 		DBF316191E76427B00B38C4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF316181E76427B00B38C4C /* AppDelegate.swift */; };
 		DBF3161B1E76427B00B38C4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF3161A1E76427B00B38C4C /* ViewController.swift */; };
 		DBF316201E76427B00B38C4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBF3161F1E76427B00B38C4C /* Assets.xcassets */; };
-		DBF316231E76427B00B38C4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF316211E76427B00B38C4C /* LaunchScreen.storyboard */; };
 		DBF3162D1E76495B00B38C4C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF3162C1E76495B00B38C4C /* Event.swift */; };
 		DBF316331E764CD800B38C4C /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF316321E764CD800B38C4C /* JSON.framework */; };
 		DBF316341E764CD800B38C4C /* JSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DBF316321E764CD800B38C4C /* JSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -51,7 +50,6 @@
 		DBF316181E76427B00B38C4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBF3161A1E76427B00B38C4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DBF3161F1E76427B00B38C4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DBF316221E76427B00B38C4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBF316241E76427B00B38C4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBF3162C1E76495B00B38C4C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		DBF316321E764CD800B38C4C /* JSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSON.framework; path = Carthage/Build/iOS/JSON.framework; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 			children = (
 				DB7CCE9D1E7739240008F83B /* films.json */,
 				DBF3161F1E76427B00B38C4C /* Assets.xcassets */,
-				DBF316211E76427B00B38C4C /* LaunchScreen.storyboard */,
 				DBF316241E76427B00B38C4C /* Info.plist */,
 			);
 			name = Resources;
@@ -226,7 +223,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBF316231E76427B00B38C4C /* LaunchScreen.storyboard in Resources */,
 				DBF316201E76427B00B38C4C /* Assets.xcassets in Resources */,
 				DB7CCE9E1E7739240008F83B /* films.json in Resources */,
 			);
@@ -272,17 +268,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		DBF316211E76427B00B38C4C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DBF316221E76427B00B38C4C /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DBF316251E76427B00B38C4C /* Debug */ = {
@@ -380,6 +365,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 647GR2UNM5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -399,6 +385,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 647GR2UNM5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
