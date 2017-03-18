@@ -12,7 +12,6 @@ import IGListKit
 
 class ViewController: UIViewController, IGListAdapterDataSource {
     var events = [Event]()
-    var filmLinks = [FilmLink]()
     
     var refreshControl: UIRefreshControl!
     let collectionView = IGListCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -22,10 +21,6 @@ class ViewController: UIViewController, IGListAdapterDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        FilmLinkManager.shared.createLink { (links) in
-            self.filmLinks = links
-        }
         
         self.collectionView.backgroundColor = #colorLiteral(red: 0.1882352941, green: 0.1882352941, blue: 0.1882352941, alpha: 1)
         self.collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
@@ -57,55 +52,11 @@ class ViewController: UIViewController, IGListAdapterDataSource {
     // MARK: API call
     
     func updateEvents() {
-        let url = URL(string: "http://vsb.sxsw.com/api/_design/app/_view/venues")!
-        var request = URLRequest(url: url)
-        
-        request.httpMethod = "GET"
-        request.allHTTPHeaderFields = ["Accept" : "application/json"]
-        
-        URLSession.shared.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
-            if error == nil {
-                // Success
-                let statusCode = (response as! HTTPURLResponse).statusCode
-                if let data = data, 200..<300 ~= statusCode {
-                    
-                    // Parse JSON, refresh view
-                    if let json = try? JSONSerialization.jsonObject(with: data, options: []) {
-                        let eventsJSON: [JSONDictionary] = try! JSON.decode(json as! JSONDictionary, key: "rows")
-                        self.events = eventsJSON.flatMap({ (eventJSON) -> Event in
-                            let name: String = try! decode(eventJSON, keyPath: "value.event_name")
-                            
-                            for link in self.filmLinks {
-                                if link.name == name {
-                                    return try! Event(jsonRepresentation: eventJSON, filmLink: link)
-                                }
-                            }
-                            
-                            return try! Event(jsonRepresentation: eventJSON)
-                        })
-                        self.events.sort(by: { (eventOne, eventTwo) -> Bool in
-                            if eventOne.eventTime.contains("AM") {
-                                if eventTwo.eventTime.contains("AM") {
-                                    return eventOne.eventTime < eventTwo.eventTime
-                                }
-                                
-                                return true
-                            } else {
-                                return eventOne.eventTime < eventTwo.eventTime
-                            }
-                        })
-                        self.adapter.reloadData(completion: nil)
-                        self.refreshControl.endRefreshing()
-                    } else {
-                        // display error to user
-                    }
-                }
-            }
-            else {
-                // Failure
-                print("URL Session Task Failed: %@", error!.localizedDescription);
-            }
-        }).resume()
+        EventClient.shared.getEvents { (events) in
+            self.events = events
+            self.adapter.reloadData(completion: nil)
+            self.refreshControl.endRefreshing()
+        }
     }
     
     // MARK: IGListAdapterDataSource

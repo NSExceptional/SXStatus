@@ -34,13 +34,9 @@ class Event: JSONDeserializable {
     let eventTime: String
     let eventName: String
     let position: Int
-    private(set) var filmLink: FilmLink? = nil
+    var url: URL? = nil
     
     required init(jsonRepresentation: JSONDictionary) throws {
-        if let link = jsonRepresentation["__filmLink"] as? FilmLink {
-            self.filmLink = link
-        }
-        
         self.venueName = try decode(jsonRepresentation, keyPath: "value.venue_name")
         self.status = try decode(jsonRepresentation, keyPath: "value.status")
         self.eventTime = try decode(jsonRepresentation, keyPath: "value.event_time")
@@ -48,10 +44,12 @@ class Event: JSONDeserializable {
         self.position = try decode(jsonRepresentation, keyPath: "value.position")
     }
     
-    convenience init(jsonRepresentation: JSONDictionary, filmLink: FilmLink) throws {
-        var json = jsonRepresentation
-        json["__filmLink"] = filmLink
-        try self.init(jsonRepresentation: json)
+    convenience init(jsonRepresentation: JSONDictionary, url: URL?) throws {
+        try self.init(jsonRepresentation: jsonRepresentation)
+        
+        if let url = url {
+            self.url = url
+        }
     }
     
 }

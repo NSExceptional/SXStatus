@@ -51,7 +51,7 @@ class SectionController: IGListSectionController, IGListSectionType {
     
     func didSelectItem(at index: Int) {
         // If the Event was found in films.json
-        if let url = self.event.filmLink?.url {
+        if let url = self.event.url {
             let svc = SFSafariViewController(url: url)
             
             if #available(iOS 10.0, *) {
