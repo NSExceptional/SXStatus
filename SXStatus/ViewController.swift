@@ -36,7 +36,6 @@ class ViewController: UIViewController, IGListAdapterDataSource {
         self.collectionView.alwaysBounceVertical = true
         self.refreshControl.addTarget(self, action: #selector(updateEvents), for: .valueChanged)
         self.collectionView.addSubview(refreshControl)
-        self.refreshControl.tintColor = .white
         // Make the spinner appear behind the cells
         self.refreshControl.layer.zPosition = -1
         
