@@ -24,7 +24,7 @@ struct EventClient {
         
         let films = filmsDictionaryArray.map({ (film) -> (name: String, url: URL) in
             let name: String = try! decode(film, key: "name")
-            let id: String = try! decode(film, key: "id")
+            let id: Int = try! decode(film, key: "id")
             return (name, URL(string: "http://schedule.sxsw.com/2017/films/\(id)")!)
         })
         
@@ -50,7 +50,7 @@ struct EventClient {
                         
                         /// An array of Event objects
                         let events = eventsJSON.flatMap({ (eventJSON) -> Event in
-                            let name: String = try! decode(eventJSON, keyPath: "value.event_name")
+                            let name: String = try! decode(eventJSON, keyPath: "value.event_time")
                             
                             for link in EventClient.links {
                                 if link.name == name {
@@ -77,7 +77,23 @@ struct EventClient {
     }
     
     func getExampleEvents(completion: @escaping ([Event]) -> Void) {
+        if let json = try? JSONSerialization.jsonObject(with: EventClient.exampleJSONData, options: []) {
+            let eventsJSON: [JSONDictionary] = try! decode(json as! JSONDictionary, key: "rows")
         
+            let exampleEvents = eventsJSON.flatMap({ (eventJSON) -> Event in
+                let name: String = try! decode(eventJSON, keyPath: "value.event_time")
+                
+                for link in EventClient.links {
+                    if link.name == name {
+                        return try! Event(jsonRepresentation: eventJSON, url: link.url)
+                    }
+                }
+                
+                return try! Event(jsonRepresentation: eventJSON, url: nil)
+            })
+        
+            completion(exampleEvents)
+        }
     }
     
 }

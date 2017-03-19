@@ -28,6 +28,13 @@ enum Status: String {
 }
 
 class Event: JSONDeserializable {
+    static private let eventDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        formatter.locale = Locale(identifier: "en_US")
+        return formatter
+    }()
+    
     var venueName: String
     
     let status: Status
@@ -36,12 +43,18 @@ class Event: JSONDeserializable {
     let position: Int
     var url: URL? = nil
     
+    fileprivate var eventDate = Date()
+    
     required init(jsonRepresentation: JSONDictionary) throws {
         self.venueName = try decode(jsonRepresentation, keyPath: "value.venue_name")
         self.status = try decode(jsonRepresentation, keyPath: "value.status")
         self.eventTime = try decode(jsonRepresentation, keyPath: "value.event_time")
         self.eventName = try decode(jsonRepresentation, keyPath: "value.event_name")
         self.position = try decode(jsonRepresentation, keyPath: "value.position")
+        
+        if !self.eventTime.isEmpty {
+            self.eventDate = Event.eventDateFormatter.date(from: self.eventTime)!
+        }
     }
     
     convenience init(jsonRepresentation: JSONDictionary, url: URL?) throws {
@@ -65,3 +78,12 @@ extension Event: IGListDiffable {
     }
 }
 
+extension Event: Equatable, Comparable {
+    static func ==(lhs: Event, rhs: Event) -> Bool {
+        return lhs.venueName == rhs.venueName && lhs.eventName == rhs.eventName && lhs.eventTime == lhs.eventTime
+    }
+    
+    static func <(lhs: Event, rhs: Event) -> Bool {
+        return lhs.eventDate < rhs.eventDate
+    }
+}

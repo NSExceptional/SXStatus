@@ -52,8 +52,14 @@ class ViewController: UIViewController, IGListAdapterDataSource {
     // MARK: API call
     
     func updateEvents() {
-        EventClient.shared.getEvents { (events) in
+        /* EventClient.shared.getEvents { (events) in
             self.events = events
+            self.adapter.reloadData(completion: nil)
+            self.refreshControl.endRefreshing()
+        } */
+        
+        EventClient.shared.getExampleEvents { (events) in
+            self.events = events.sorted()
             self.adapter.reloadData(completion: nil)
             self.refreshControl.endRefreshing()
         }

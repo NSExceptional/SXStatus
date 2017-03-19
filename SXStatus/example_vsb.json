@@ -13,9 +13,9 @@
              "_rev": "333-f0497796ffd8d2320ec827878fbe5e27",
              "position": 0,
              "venue_name": "Paramount Theatre",
-             "status": "go",
-             "event_time": "",
-             "event_name": "",
+             "status": "full",
+             "event_time": "2:15 PM",
+             "event_name": "Mr. Roosevelt",
              "type": "venue",
              "bootstrapStatus": "success",
              "_deleted_conflicts": [
@@ -36,8 +36,8 @@
              "position": 1,
              "venue_name": "Stateside Theatre",
              "status": "go",
-             "event_time": "5:00 PM",
-             "event_name": "Doug Loves Movies Podcast",
+             "event_time": "1:15 PM",
+             "event_name": "Most Beautiful Island",
              "type": "venue",
              "bootstrapStatus": "warning",
              "_deleted_conflicts": [
@@ -56,9 +56,9 @@
              "_rev": "479-23a9ffd170d61a53230b65fd69fab435",
              "position": 2,
              "venue_name": "Alamo Ritz 1",
-             "status": "go",
-             "event_time": "6:30 PM",
-             "event_name": "Audience Award: Narrative Spotlight, Mr.Roosevelt ",
+             "status": "full",
+             "event_time": "11:15 AM",
+             "event_name": "The Secret Life of Lance Letscher",
              "type": "venue",
              "bootstrapStatus": "success",
              "_deleted_conflicts": [
@@ -77,9 +77,9 @@
              "_rev": "489-3e757241f1c5c3a7bc3b921f561fcc69",
              "position": 3,
              "venue_name": "Alamo Ritz 2",
-             "status": "go",
-             "event_time": "4:00 PM",
-             "event_name": "Audience Award: 24 beats per sec., May It Last: A Portrait of the Avett Brothers",
+             "status": "hurry",
+             "event_time": "10:45 AM",
+             "event_name": "Win By Fall",
              "type": "venue",
              "bootstrapStatus": "success",
              "_deleted_conflicts": [
@@ -99,8 +99,8 @@
              "position": 4,
              "venue_name": "Alamo Lamar A",
              "status": "full",
-             "event_time": "4:00 PM",
-             "event_name": "Audience Award: Doc Feature, Dealt",
+             "event_time": "12:45 PM",
+             "event_name": "A Bad Idea Gone Wrong",
              "type": "venue",
              "bootstrapStatus": "warning"
              }
@@ -116,9 +116,9 @@
              "_rev": "520-f6a84b9b0182a34193ce2011a787adc4",
              "position": 5,
              "venue_name": "Alamo Lamar B",
-             "status": "full",
-             "event_time": "4:30 PM",
-             "event_name": "Music Videos",
+             "status": "go",
+             "event_time": "1:30 PM",
+             "event_name": "Pornocracy",
              "type": "venue",
              "bootstrapStatus": "warning"
              }
@@ -134,9 +134,9 @@
              "_rev": "484-790c72779eec8ab02a1c1fe2045ef0e5",
              "position": 6,
              "venue_name": "Alamo Lamar C",
-             "status": "go",
-             "event_time": "5:30 PM",
-             "event_name": "Two Pigeons",
+             "status": "hurry",
+             "event_time": "3:45 PM",
+             "event_name": "Lemon",
              "type": "venue",
              "bootstrapStatus": "success"
              }
@@ -153,8 +153,8 @@
              "position": 7,
              "venue_name": "Alamo Lamar D",
              "status": "go",
-             "event_time": "",
-             "event_name": "",
+             "event_time": "1:15 PM",
+             "event_name": "The Cloud Forest",
              "type": "venue",
              "bootstrapStatus": "success"
              }
@@ -189,8 +189,8 @@
              "position": 9,
              "venue_name": "Rollins Theatre at the Long Center",
              "status": "go",
-             "event_time": "",
-             "event_name": "",
+             "event_time": "1:45 PM",
+             "event_name": "This Is Your Death",
              "type": "venue",
              "bootstrapStatus": "success"
              }
@@ -207,8 +207,8 @@
              "position": 10,
              "venue_name": "ZACH Theatre",
              "status": "go",
-             "event_time": "8:00 PM",
-             "event_name": "LIFE",
+             "event_time": "2:00 PM",
+             "event_name": "Walking Out",
              "type": "venue",
              "bootstrapStatus": "success",
              "_deleted_conflicts": [
@@ -229,8 +229,8 @@
              "position": 11,
              "venue_name": "Vimeo Theater",
              "status": "go",
-             "event_time": "",
-             "event_name": "",
+             "event_time": "3:45 PM",
+             "event_name": "Disgraced",
              "type": "venue",
              "bootstrapStatus": "success"
              }
