@@ -13,7 +13,7 @@ class EventCell: UICollectionViewCell {
     // Labels
     let venueNameLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.font = UIFont.systemFont(ofSize: 13, weight: UIFontWeightRegular)
+        label.font = UIFont.systemFont(ofSize: 13, weight: UIFontWeightMedium)
         label.textAlignment = .left
         label.text = "Venue Name".uppercased()
         label.numberOfLines = 1
