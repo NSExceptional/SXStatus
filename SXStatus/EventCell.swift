@@ -48,12 +48,6 @@ class EventCell: UICollectionViewCell {
         return view
     }()
     
-    private let bodyView: UIView = {
-        let view = UIView(frame: .zero)
-        view.backgroundColor = .clear
-        return view
-    }()
-    
     private let venueAndTimeStackView: UIStackView
     
     var statusColor: Status {
@@ -80,10 +74,9 @@ class EventCell: UICollectionViewCell {
         self.contentView.clipsToBounds = true
         
         self.headerView.addSubview(venueAndTimeStackView)
-        self.bodyView.addSubview(eventNameLabel)
         
         self.contentView.addSubview(headerView)
-        self.contentView.addSubview(bodyView)
+        self.contentView.addSubview(eventNameLabel)
     }
     
     override class var requiresConstraintBasedLayout: Bool {
@@ -101,16 +94,22 @@ class EventCell: UICollectionViewCell {
             make.center.equalToSuperview()
         }
         
-        self.bodyView.snp.updateConstraints { (make) in
-            make.top.equalTo(headerView.snp.bottom)
-            make.bottom.left.right.equalToSuperview()
-        }
-        
         self.eventNameLabel.snp.updateConstraints { (make) in
-            make.left.right.equalToSuperview().inset(15)
-            make.centerY.equalToSuperview()
+            make.top.equalTo(headerView.snp.bottom).offset(12)
+            make.bottom.left.right.equalToSuperview().inset(12)
         }
         
         super.updateConstraints()
+    }
+
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        setNeedsLayout()
+        layoutIfNeeded()
+        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+        var newFrame = layoutAttributes.frame
+        // note: don't change the width
+        newFrame.size.height = ceil(size.height)
+        layoutAttributes.frame = newFrame
+        return layoutAttributes
     }
 }

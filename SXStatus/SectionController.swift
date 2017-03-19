@@ -25,7 +25,8 @@ class SectionController: IGListSectionController, IGListSectionType {
     }
     
     func sizeForItem(at index: Int) -> CGSize {
-        return CGSize(width: 0.96 * UIScreen.main.bounds.width, height: 74) // two line label height == 92
+        return CGSize(width: 0.96 * UIScreen.main.bounds.width, height: collectionContext!.containerSize.width)
+//        return CGSize(width: 0.96 * UIScreen.main.bounds.width, height: 74) // two line label height == 92
     }
     
     func cellForItem(at index: Int) -> UICollectionViewCell {

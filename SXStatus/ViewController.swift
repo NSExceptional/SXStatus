@@ -14,7 +14,12 @@ class ViewController: UIViewController, IGListAdapterDataSource {
     var events = [Event]()
     
     var refreshControl: UIRefreshControl!
-    let collectionView = IGListCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    let collectionView: IGListCollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.estimatedItemSize = CGSize(width: UIScreen.main.bounds.width, height: 44)
+        return IGListCollectionView(frame: .zero, collectionViewLayout: layout)
+    }()
+
     lazy var adapter: IGListAdapter = {
         return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C390EB341E7F429600C2D2A6 /* UILabel+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C390EB331E7F429600C2D2A6 /* UILabel+Convenience.swift */; };
 		DB7CCE9E1E7739240008F83B /* films.json in Resources */ = {isa = PBXBuildFile; fileRef = DB7CCE9D1E7739240008F83B /* films.json */; };
 		DBAF3C9F1E7DD74100B7BD56 /* example_vsb.json in Resources */ = {isa = PBXBuildFile; fileRef = DBAF3C9E1E7DD74100B7BD56 /* example_vsb.json */; };
 		DBAF3CA11E7DD8F100B7BD56 /* EventClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3CA01E7DD8F000B7BD56 /* EventClient.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C390EB331E7F429600C2D2A6 /* UILabel+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Convenience.swift"; sourceTree = "<group>"; };
 		DB7CCE9D1E7739240008F83B /* films.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = films.json; sourceTree = "<group>"; };
 		DBAF3C9E1E7DD74100B7BD56 /* example_vsb.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example_vsb.json; sourceTree = "<group>"; };
 		DBAF3CA01E7DD8F000B7BD56 /* EventClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventClient.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				DBF316391E76511B00B38C4C /* Decoding+Status.swift */,
 				DBF316371E764EE100B38C4C /* Decoding+KeyPath.swift */,
 				DBAF3CA21E7DE0CC00B7BD56 /* Data+FromFile.swift */,
+				C390EB331E7F429600C2D2A6 /* UILabel+Convenience.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -198,7 +201,7 @@
 				TargetAttributes = {
 					DBF316141E76427B00B38C4C = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 647GR2UNM5;
+						DevelopmentTeam = S6N2F22V2Z;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -265,6 +268,7 @@
 				DBF3162D1E76495B00B38C4C /* Event.swift in Sources */,
 				DBAF3CA31E7DE0CC00B7BD56 /* Data+FromFile.swift in Sources */,
 				DBF316381E764EE100B38C4C /* Decoding+KeyPath.swift in Sources */,
+				C390EB341E7F429600C2D2A6 /* UILabel+Convenience.swift in Sources */,
 				DBF316441E7660EE00B38C4C /* SectionController.swift in Sources */,
 				DBAF3CA11E7DD8F100B7BD56 /* EventClient.swift in Sources */,
 				DBF316461E76769800B38C4C /* EventCell.swift in Sources */,
@@ -370,7 +374,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 647GR2UNM5;
+				DEVELOPMENT_TEAM = S6N2F22V2Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -390,7 +394,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 647GR2UNM5;
+				DEVELOPMENT_TEAM = S6N2F22V2Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
