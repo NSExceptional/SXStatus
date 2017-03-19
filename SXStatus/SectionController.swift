@@ -13,10 +13,6 @@ import SafariServices
 class SectionController: IGListSectionController, IGListSectionType {
     var event: Event!
     
-    override init() {
-        super.init()
-    }
-    
     func numberOfItems() -> Int {
         // Don't display a cell if the eventName or eventTime is an empty string
         if event.eventName.isEmpty || event.eventTime.isEmpty {
@@ -67,6 +63,7 @@ class SectionController: IGListSectionController, IGListSectionType {
             let alert = UIAlertController(title: "No Website Found for \(event.eventName)", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             alert.view.tintColor = event.status.color
+            
             self.viewController?.present(alert, animated: true, completion: nil)
         }
     }
