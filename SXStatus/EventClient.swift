@@ -18,7 +18,7 @@ struct EventClient {
     private static let exampleJSONData = try! Data(fromFile: "example_vsb", ofType: "json")
     
     /// A computed array of tuples of names and urls for each entry in films.json
-    private static var links: [(name: String, url: URL)] {
+    private static let links: [(name: String, url: URL)] = {
         let filmsDictionary = try! JSONSerialization.jsonObject(with: EventClient.filmsJSONData, options: []) as! [String : [JSONDictionary]]
         let filmsDictionaryArray = filmsDictionary.flatMap { $0.1 }
         
@@ -29,7 +29,7 @@ struct EventClient {
         })
         
         return films
-    }
+    }()
     
     func getEvents(completion: @escaping ([Event]) -> Void) {
         let VSBURL = URL(string: "http://vsb.sxsw.com/api/_design/app/_view/venues")!
@@ -81,7 +81,7 @@ struct EventClient {
             let eventsJSON: [JSONDictionary] = try! decode(json as! JSONDictionary, key: "rows")
         
             let exampleEvents = eventsJSON.flatMap({ (eventJSON) -> Event in
-                let name: String = try! decode(eventJSON, keyPath: "value.event_time")
+                let name: String = try! decode(eventJSON, keyPath: "value.event_name")
                 
                 for link in EventClient.links {
                     if link.name == name {
